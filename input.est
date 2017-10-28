@@ -1,0 +1,20 @@
+// Priors and rules file
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist. #min #max
+//all N are in number of haploid individuals
+1 NPOP0 logunif 100 100000 output
+1 NPOP1 logunif 100 100000 output
+0 NM1 logunif 0.01 5 output
+0 NM2 logunif 0.01 5 output
+1 TIME1 unif 1000 10000 output
+1 TIME4 unif 1 100 output
+1 TIME5 unif 1 100 output
+0 RESIZE1 logunif .0001 .1 output
+0 RESIZE2 logunif .0001 .1 output
+[RULES]
+[COMPLEX PARAMETERS]
+0 MIG1 = NM1/NPOP0 output
+0 MIG2 = NM2/NPOP1 output
+1 TIME2 = TIME1-TIME4 output
+1 TIME3 = TIME1-TIME5 output

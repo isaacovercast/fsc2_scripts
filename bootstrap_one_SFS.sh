@@ -236,7 +236,7 @@ if [ ! -z "$DO_MULTI" ]
 then
 	NSNPS=`cat $OBSERVED_FILE | awk 'NR==3' | tr " " "\n" | awk '{s+=$1}END{print s}'`
 else
-	NSNPS=`cat $OBSERVED_FILE | awk 'NR==3' | tr "\t" "\n" | awk 'NR>1' | awk '{s+=$1}END{print s}'`
+	NSNPS=`cat $OBSERVED_FILE | awk 'NR>=3' | tr "\t" "\n" | awk 'NR>1' | awk '{s+=$1}END{print s}'`
 fi
 
 echo "NSNPS=$NSNPS"

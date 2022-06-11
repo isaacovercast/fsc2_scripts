@@ -31,7 +31,7 @@
 # Update the script for new versions of fsc. Right now this
 # script will only want to run the most recent version, if it doesn't
 # find it it'll go out and grab it.
-CUR_FSC_VRS=26
+CUR_FSC_VRS=27
 
 ###################################################################
 # A couple utility functions
@@ -74,16 +74,16 @@ getfsc(){
 			if [ $OS_fingerprint == "Linux" ];
 			then
 				echo "OS=linux"
-				`wget http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc26_linux64.zip > fsc26_linux64.zip`
-				FSC_DL=fsc_linux64
+				`wget http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc27_linux64.zip > fsc_linux64.zip`
+				FSC_DL=fsc27_linux64
 			else
 				echo "OS=Mac"
-				`curl http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc26_mac64.zip > fsc26_mac64.zip`
-				FSC_DL=fsc26_mac64
+				`curl http://cmpg.unibe.ch/software/fastsimcoal2/downloads/fsc27_mac64.zip > fsc_mac64.zip`
+				FSC_DL=fsc27_mac64
 			fi
 			
 			# Extract the fsc binary, change mode to allow execution, and clean up the .zip file
-			unzip -p $FSC_DL.zip $FSC_DL/fsc$CUR_FSC_VRS > fsc$CUR_FSC_VRS
+			unzip -p $FSC_DL.zip $FSC_DL/fsc$CUR_FSC_VRS* > fsc$CUR_FSC_VRS
 			chmod 777 fsc$CUR_FSC_VRS
 			rm -f fsc_*64.zip
 			FSC_BIN="$PWD/fsc$CUR_FSC_VRS"

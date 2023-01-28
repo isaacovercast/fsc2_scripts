@@ -31,7 +31,7 @@
 # Update the script for new versions of fsc. Right now this
 # script will only want to run the most recent version, if it doesn't
 # find it it'll go out and grab it.
-CUR_FSC_VRS=25221
+CUR_FSC_VRS=27
 
 ###################################################################
 # A couple utility functions
@@ -289,7 +289,7 @@ do
     pwd
     echo "$FSC_BIN -i bootstrap.par -n 1 $FSC_FOLDING_FLAG -c 2 -I $DO_MULTI &> /dev/null"
 	$FSC_BIN -i bootstrap.par -n 1 $FSC_FOLDING_FLAG -c 2 -I $DO_MULTI &> /dev/null
-
+    pwd
 	cp bootstrap/bootstrap${OBSERVED_FILE_TYPE} ./
 	#rm -rf bootstrap
 	rm seed.txt
